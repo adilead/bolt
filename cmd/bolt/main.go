@@ -10,6 +10,7 @@ import (
 
 	"github.com/adilead/bolt/internal/apprunner"
 	"github.com/adilead/bolt/internal/bolt"
+	"github.com/adilead/bolt/internal/powermenu"
 	windowctrl "github.com/adilead/bolt/internal/window_ctrl"
 	"github.com/ktr0731/go-fuzzyfinder"
 )
@@ -40,10 +41,12 @@ func NewBoltApp(args []string) (BoltApp, error) {
         optionGenerator: map[string]generatorFunc{
             "run": apprunner.GetPrograms,
             "win": windowctrl.GetPrograms,
+            "power": powermenu.GetPrograms,
         },
         optionExecutor: map[string]optionExecutorFunc {
             "run": apprunner.RunProgram,
             "win": windowctrl.RunProgram,
+            "power": powermenu.RunProgram,
         },
     }, nil
 }
